@@ -7,13 +7,12 @@ function clearAllFields() {
   refs.countryInfo.innerHTML = '';
 };
 
-function clearcountryList() {
+function clearCountryList() {
   refs.countryList.innerHTML = '';
 };
 
-function clearcountryInfo() {
+function clearCountryInfo() {
   refs.countryInfo.innerHTML = '';
 };
 
-
-export { clearAllFields, clearcountryList, clearcountryInfo };
+export { clearAllFields, clearCountryList, clearCountryInfo };
