@@ -119,3 +119,5 @@ function createList(country) {
 
   refs.countryList.innerHTML = list;
 }
+
+check
