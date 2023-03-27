@@ -5,13 +5,15 @@ import { fetchCountries } from './js/fetchCountries';
 import getRefs from './js/getRefs';
 import * as clearField from './js/clearField';
 import markupCard from './templates/markupCard.hbs';
-import markupList from './templates/markupList.hbs'
+import markupList from './templates/markupList.hbs';
 
 const DEBOUNCE_DELAY = 300;
 
 const refs = getRefs();
 
-refs.countryList.style.listStyle = 'none';
+refs.input.placeholder = 'Start type here country name';
+
+window.onload = () => refs.input.focus();
 
 refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
@@ -50,9 +52,9 @@ function createCard(country) {
   // const allLanguage = Object.values(country.languages);
   // const markup = `
   //   <h2>
-  //     <img src='${country.flags.svg}' 
-  //       alt='flag' 
-  //       width='30' 
+  //     <img src='${country.flags.svg}'
+  //       alt='flag'
+  //       width='30'
   //       class='country-flag'
   //     />
   //     ${country.name.common}
@@ -68,23 +70,22 @@ function createCard(country) {
 function createList(country) {
   const list = country.map(markupList).join('');
 
-    // .map(
-    //   name =>
-    //     `<li class='list-elem'>
-    //     <p>
-    //       <img src='${name.flags.svg}' 
-    //         alt='flag'
-    //         width='30'
-    //         class='country-flag'
-    //       />
-    //      ${name.name.common}
-    //     </p>
-    //   </li>`
-    // )
-    // .join('');
+  // .map(
+  //   name =>
+  //     `<li class='list-elem'>
+  //     <p>
+  //       <img src='${name.flags.svg}'
+  //         alt='flag'
+  //         width='30'
+  //         class='country-flag'
+  //       />
+  //      ${name.name.common}
+  //     </p>
+  //   </li>`
+  // )
+  // .join('');
 
   refs.countryList.innerHTML = list;
 }
-
 
 console.log(createCard('peru'));
