@@ -9,7 +9,7 @@ const DEBOUNCE_DELAY = 300;
 
 const refs = getRefs();
 
-refs.input.placeholder = 'Start type here country name';
+refs.input.placeholder = 'Type country name';
 
 window.onload = () => refs.input.focus();
 
@@ -18,7 +18,7 @@ refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 function onInput(e) {
   e.preventDefault();
 
-  const searchQuery = e.target.value.trim();
+  const searchQuery = e.target.value.trim();  
 
   if (searchQuery === '') {
     clearField.clearAllFields();
@@ -47,7 +47,7 @@ function onInput(e) {
 }
 
 function createCard(country) {
-  const allLanguage = Object.values(country.languages);
+  const allLanguage = Object.values(country.languages).join(', ');
   const markup = `
     <h2>
       <img src='${country.flags.svg}'
